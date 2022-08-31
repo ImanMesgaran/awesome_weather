@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href=""><img src="readme/awesome_weather.gif" alt="Todo" width="600"></a>
+  <a href=""><img src="readme/awesome_weather.gif" alt="Todo" height = "400"></a>
   <br>
 
   <br>
