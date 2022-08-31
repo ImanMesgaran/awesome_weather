@@ -226,6 +226,17 @@ currently, there is only one feature to the app which is `Weather` functionality
 
 ### Packages and Plugins
 
+- **_rxdart_**: Reactive-Extension plugin for Dart.
+
+```
+_searchQueryController
+        .distinct()
+        .debounceTime(Duration(milliseconds: 500))
+        .switchMap((value) async* {
+      yield await getPlaces.call(query: query, provider: apiProvider);
+    })
+```
+
 - **_get_it_**: this is a simple package to use for Dependency Injection.
 
   things like Services, Bloc's, and use-cases are available in the code base through DI:
@@ -250,49 +261,47 @@ currently, there is only one feature to the app which is `Weather` functionality
   ```
   getIt.registerFactory(
     () => WeatherCubit(
-      getAssets: getIt(),
-      getAssetDetails: getIt(),
+      getPlaces: getIt(),
+      getCurrentWeatherDetails: getIt(),
+      getForecastWeatherDetails: getIt(),
     ),
   );
 
   // * Use Cases
   // ! Weather Cubit UseCases
-  getIt.registerLazySingleton(() => GetAssets(getIt()));
-  getIt.registerLazySingleton(() => GetAssetDetails(getIt()));
+  getIt.registerLazySingleton(() => GetPlaces(getIt()));
+  getIt.registerLazySingleton(() => GetCurrentWeatherDetails(getIt()));
+  getIt.registerLazySingleton(() => GetForecastWeatherDetails(getIt()));
 
   ```
 
 - **_dartz:_** for using Functional Programming goodies in the app.
 
   ```
-  class GetWeather {
-    final WeatherRepository repository;
+  class GetCurrentWeatherDetails {
+  final WeatherRepository repository;
 
-    GetWeather(this.repository);
-
-    Future<Either<Failure, AssetsModel?>> call() async {
-      var result = await repository.getAssets();
-      return result;
-    }
+  GetCurrentWeatherDetails(this.repository);
+  Future<Either<Failure, WeatherEntity?>> call({
+    required LatLng latLng,
+    required WeatherAPIProviders provider,
+  }) async {
+    var result = await repository.getCurrentWeatherDetails(
+      latLng: latLng,
+      provider: provider,
+    );
+    return result;
+  }
   }
   ```
 
 - **_dio:_** currently, the best plugin for network api connection for flutter with lots of out-of-the-box tools and features.
 
-  there are some custom interceptors in `core\network\custom_interceptor` folder to help using this packages more delightful.
+- **_retrofit:_** dio client generator.
 
-  ```
-  client = Dio(
-      BaseOptions(
-        baseUrl: AppApiPath.baseUrl,
-        // set connection timeout
-        connectTimeout: 30000,
-        receiveTimeout: 30000,
-        sendTimeout: 30000,
-        contentType: "application/json",
-      ),
-    )
-  ```
+- **_freezed:_** code generator for data-classes/unions/pattern-matching/cloning.
+
+- **_flutter_map:_** map provider for flutter.
 
 ---
 
@@ -307,9 +316,9 @@ This project relies on [flutter_localizations][flutter_localizations_link] and f
 ```arb
 {
     "@@locale": "en",
-    "assetsAppBarTitle": "AssetsViewer",
-    "@assetsAppBarTitle": {
-        "description": "Text shown in the AppBar of the Assets Viewer Page"
+    "weatherAppBarTitle": "Weather Viewer",
+    "@weatherAppBarTitle": {
+        "description": "Text shown in the AppBar of the Weather Viewer Page"
     }
 }
 ```
@@ -319,9 +328,9 @@ This project relies on [flutter_localizations][flutter_localizations_link] and f
 ```arb
 {
     "@@locale": "en",
-    "assetsAppBarTitle": "AssetsViewer",
-    "@assetsAppBarTitle": {
-        "description": "Text shown in the AppBar of the Assets Viewer Page"
+    "weatherAppBarTitle": "WeatherViewer",
+    "@weatherAppBarTitle": {
+        "description": "Text shown in the AppBar of the Weather Viewer Page"
     },
     "helloWorld": "Hello World",
     "@helloWorld": {
@@ -333,7 +342,7 @@ This project relies on [flutter_localizations][flutter_localizations_link] and f
 3. Use the new string
 
 ```dart
-import 'package:holo_switch/l10n/l10n.dart';
+import 'package:awesome_weather/l10n/l10n.dart';
 
 @override
 Widget build(BuildContext context) {
@@ -376,9 +385,9 @@ Update the `CFBundleLocalizations` array in the `Info.plist` at `ios/Runner/Info
 ```arb
 {
     "@@locale": "en",
-    "assetsAppBarTitle": "Assets Viewer",
-    "@assetsAppBarTitle": {
-        "description": "Text shown in the AppBar of the Assets Viewer Page"
+    "weatherAppBarTitle": "Weather Viewer",
+    "@weatherAppBarTitle": {
+        "description": "Text shown in the AppBar of the Weather Viewer Page"
     }
 }
 ```
@@ -388,8 +397,8 @@ Update the `CFBundleLocalizations` array in the `Info.plist` at `ios/Runner/Info
 ```arb
 {
     "@@locale": "es",
-    "assetsAppBarTitle": "Assets",
-    "@assetsAppBarTitle": {
+    "weatherAppBarTitle": "Weather Viewer",
+    "@weatherAppBarTitle": {
         "description": "Texto mostrado en la AppBar de la página del"
     }
 }
