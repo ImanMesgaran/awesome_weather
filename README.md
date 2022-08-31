@@ -14,14 +14,16 @@
 
 A minimal Weather viewer app made with <a href="https://flutter.dev" target="_blank">Flutter</a>.
 
-also `there's a release-build version of the app uploaded for android.`
+> because `WeatherStack` API doesn't provide many of the functionality in free plan, for example `weather forecast`, `min temp`, `max temp`, geolocation, some other api providers have been used along WeatherStack to provide full functionality.
+
+also, `there's a release-build version of the app uploaded for android.`
 you can find a video recording of the working app in the following links:
 
-Install the App directly:  
+Install the App directly:
 
-* <a href="https://drive.google.com/file/d/18DBMBZbBe21gLx_QJkmZ_OWaFv_zecax/view?usp=sharing" target="_blank">Link to Production APK in Google Drive</a>
+- <a href="https://drive.google.com/file/d/18DBMBZbBe21gLx_QJkmZ_OWaFv_zecax/view?usp=sharing" target="_blank">Link to Production APK in Google Drive</a>
 
-* <a href="https://drive.google.com/file/d/1SkFPRlIQIT3JG_CEThMrUQCqso8QLYMT/view?usp=sharing" target="_blank">Video Recording</a>
+- <a href="https://drive.google.com/file/d/1SkFPRlIQIT3JG_CEThMrUQCqso8QLYMT/view?usp=sharing" target="_blank">Video Recording</a>
 
 `https://drive.google.com/file/d/18DBMBZbBe21gLx_QJkmZ_OWaFv_zecax/view?usp=sharing`
 
@@ -42,11 +44,79 @@ Install the App directly:
 
 ## Key Features
 
-- Easily Fetch and view Weather of cities using WeatherStack.com & OpenWeatherMap.com provided API's.
+- Easily Fetch and view Weather of cities using multiple weather API providers:
+  - <a href="https://weatherstack.com/documentation" target="_blank">WeatherStack</a>
+  - <a href="https://openweathermap.org/api" target="_blank">OpenWeather</a>
+  - <a href="https://docs.mapbox.com/" target="_blank">MapBox</a>
 - Weather details and information.
 - use Map to navigate and get weather of a particular location.
 
-## [![Watch the video](https://drive.google.com/file/d/1x-TK0tUbEldvu4ptKwjObo0vHXoZUqPI/view?usp=sharing)](https://drive.google.com/file/d/1SkFPRlIQIT3JG_CEThMrUQCqso8QLYMT/view?usp=sharing)
+## [![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://drive.google.com/file/d/1SkFPRlIQIT3JG_CEThMrUQCqso8QLYMT/view?usp=sharing)
+
+<table>
+  <tr>
+    <td>
+        <h5>Map with city Search</h5>
+    </td>
+    <td>
+        <h5>City/Location Search</h5>
+    </td>    
+    <td>
+        <h5>Weather Detail (WeatherStack)</h5>
+    </td>
+    <td>
+        <h5>Weather forecast (OpenWeather)</h5>
+    </td>      
+   </tr>
+
+  <tr>
+    <td> <img src="readme/screenshots/01_map_search_city.jpg"  alt="1" height = 340px class="center"></td>
+    <td> <img src="readme/screenshots/02_city_search.jpg"  alt="1" height = 340px class="center"></td>
+    <td> <img src="readme/screenshots/08_weather_detail_open_stack.jpg"  alt="1" height = 340px class="center"></td> 
+    <td> <img src="readme/screenshots/03_weather_detail_open_weather.jpg"  alt="1" height = 340px class="center"></td>   
+   </tr>
+
+  <tr>
+    <td>
+        <h5>Weather Unit (C/F/K)</h5>
+    </td>
+    <td>
+        <h5>Change API provider</h5>
+    </td>    
+    <td>
+        <h5>Weather detail loading</h5>
+    </td>
+    <td>
+        <h5>App Setting</h5>
+    </td>      
+   </tr>
+
+   <tr>
+    <td> <img src="readme/screenshots/05_weather_unit_farenheit.jpg"  alt="1" height = 340px class="center"></td>
+    <td> <img src="readme/screenshots/06_weather_stack_api_provider.jpg"  alt="1" height = 340px class="center"></td>
+    <td> <img src="readme/screenshots/07_weather_detail_loading.jpg"  alt="1" height = 340px class="center"></td>
+    <td> <img src="readme/screenshots/04_app_settings.jpg"  alt="1" height = 340px class="center"></td>  
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+        <h5>Weather error widget</h5>
+    </td>
+    <td>
+        <h5>City search error widget</h5>
+    </td>    
+    <td>
+        <h5>Weather initial data</h5>
+    </td>  
+   </tr>
+
+  <tr>
+    <td> <img src="readme/screenshots/09_weather_detail_error_handling.jpg"  alt="1" height = 340px class="center"></td>
+    <td> <img src="readme/screenshots/10_city_search_error_handling.jpg"  alt="1" height = 340px class="center"></td>
+    <td> <img src="readme/screenshots/11_weather_detail_initial.jpg"  alt="1" height = 340px class="center"></td>
+  </tr>
+</table>
 
 ## Getting Started 🚀
 
@@ -79,10 +149,10 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [F
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/ImanMesgaran/holo_switch.git
+$ git clone https://github.com/ImanMesgaran/awesome_weather.git
 
 # Go into the repository
-$ cd holo_switch
+$ cd awesome_weather
 
 # Install dependencies
 $ flutter packages get
@@ -98,7 +168,9 @@ On Mac:
 
 ## Introduction
 
-the purpose of this code is to demonstrate how to work and interact with provided WeatherStack.com & OpenWeatherMap.com API's using "awesome weather" app written in Dart & Flutter, following Clean-Architecture & TDD approach.
+the purpose of this code is to demonstrate how to work and interact with provided WeatherStack.com & OpenWeatherMap.org API's using "awesome weather" app written in Dart & Flutter, following Clean-Architecture & TDD approach.
+
+this repository also use MapBox.com API to provide map functionality.
 
 ### Architecture
 
@@ -122,7 +194,7 @@ core folder, contains all parts of the code that can be reused throughout the co
 
 each separate and major functionality of the app, should be fold and interact in it's own Feature which is divide into 3 layers, presentation, domain and data.
 
-currently, there is only one feature to the app which is `Assets Viewer` functionality:
+currently, there is only one feature to the app which is `Weather` functionality:
 
 ![](readme/lib_features.png)
 
