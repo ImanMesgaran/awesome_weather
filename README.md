@@ -16,11 +16,15 @@ A minimal Weather viewer app made with <a href="https://flutter.dev" target="_bl
 
 > because `WeatherStack` API doesn't provide many of the functionality in free plan, for example `weather forecast`, `min temp`, `max temp`, geolocation, some other api providers have been used along WeatherStack to provide full functionality.
 
-also, `there's a release-build version of the app uploaded for android.`
+also, `there's a release-build version of the app uploaded for android in release folder of this repository`:
+
+`release\flaconi-production-release.apk`
+
 you can find a video recording of the working app in the following links:
 
 Install the App directly:
 
+- `release\flaconi-production-release.apk`
 - <a href="https://drive.google.com/file/d/18DBMBZbBe21gLx_QJkmZ_OWaFv_zecax/view?usp=sharing" target="_blank">Link to Production APK in Google Drive</a>
 
 - <a href="https://drive.google.com/file/d/1SkFPRlIQIT3JG_CEThMrUQCqso8QLYMT/view?usp=sharing" target="_blank">Video Recording</a>
