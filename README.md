@@ -16,6 +16,7 @@ A minimal Weather viewer app made with <a href="https://flutter.dev" target="_bl
 
 also `there's a release-build version of the app in root/releases folder for android.`
 Install the App directly:
+`https://drive.google.com/file/d/18DBMBZbBe21gLx_QJkmZ_OWaFv_zecax/view?usp=sharing`
 `root/release/app-production-release.apk`
 
 ## Table of Content
@@ -39,7 +40,7 @@ Install the App directly:
 - Weather details and information.
 - use Map to navigate and get weather of a particular location.
 
-## [![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://drive.google.com/file/d/1O1hBAIOlwM3eVECI12LOa1XAp_Jn2vPX/view?usp=sharing)
+## [![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://drive.google.com/file/d/1SkFPRlIQIT3JG_CEThMrUQCqso8QLYMT/view?usp=sharing)
 
 ## Getting Started 🚀
 
