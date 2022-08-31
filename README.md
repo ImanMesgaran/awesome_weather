@@ -14,10 +14,16 @@
 
 A minimal Weather viewer app made with <a href="https://flutter.dev" target="_blank">Flutter</a>.
 
-also `there's a release-build version of the app in root/releases folder for android.`
-Install the App directly:
+also `there's a release-build version of the app uploaded for android.`
+you can find a video recording of the working app in the following links:
+
+Install the App directly:  
+
+* <a href="https://drive.google.com/file/d/18DBMBZbBe21gLx_QJkmZ_OWaFv_zecax/view?usp=sharing" target="_blank">Link to Production APK in Google Drive</a>
+
+* <a href="https://drive.google.com/file/d/1SkFPRlIQIT3JG_CEThMrUQCqso8QLYMT/view?usp=sharing" target="_blank">Video Recording</a>
+
 `https://drive.google.com/file/d/18DBMBZbBe21gLx_QJkmZ_OWaFv_zecax/view?usp=sharing`
-`root/release/app-production-release.apk`
 
 ## Table of Content
 
@@ -40,7 +46,7 @@ Install the App directly:
 - Weather details and information.
 - use Map to navigate and get weather of a particular location.
 
-## [![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://drive.google.com/file/d/1SkFPRlIQIT3JG_CEThMrUQCqso8QLYMT/view?usp=sharing)
+## [![Watch the video](https://drive.google.com/file/d/1x-TK0tUbEldvu4ptKwjObo0vHXoZUqPI/view?usp=sharing)](https://drive.google.com/file/d/1SkFPRlIQIT3JG_CEThMrUQCqso8QLYMT/view?usp=sharing)
 
 ## Getting Started 🚀
 
