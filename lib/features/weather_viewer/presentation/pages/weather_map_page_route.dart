@@ -74,19 +74,15 @@ class _WeatherMapPageRouteState extends State<WeatherMapPageRoute> {
                       },
                     ),
                     children: [
-                      TileLayerWidget(
-                        options: TileLayerOptions(
-                          urlTemplate:
-                              "https://api.mapbox.com/styles/v1/imanmes/{styleId}/tiles/256/{z}/{x}/{y}@2x?access_token={accessToken}",
-                          additionalOptions: {
-                            "accessToken": AppConstants.mapBoxSecretToken,
-                            "styleId": AppConstants.styleId,
-                          },
-                        ),
+                      TileLayer(
+                        urlTemplate:
+                            "https://api.mapbox.com/styles/v1/imanmes/{styleId}/tiles/256/{z}/{x}/{y}@2x?access_token={accessToken}",
+                        additionalOptions: {
+                          "accessToken": AppConstants.mapBoxSecretToken,
+                          "styleId": AppConstants.styleId,
+                        },
                       ),
-                    ],
-                    layers: [
-                      MarkerLayerOptions(markers: [
+                      MarkerLayer(markers: [
                         Marker(
                           point: LatLng(
                             mapState.currentUserLocation.latitude,
@@ -102,6 +98,23 @@ class _WeatherMapPageRouteState extends State<WeatherMapPageRoute> {
                         )
                       ]),
                     ],
+                    // layers: [
+                    // MarkerLayerOptions(markers: [
+                    //   Marker(
+                    //     point: LatLng(
+                    //       mapState.currentUserLocation.latitude,
+                    //       mapState.currentUserLocation.longitude,
+                    //     ),
+                    //     builder: (context) {
+                    //       return Icon(
+                    //         Icons.location_on,
+                    //         color: app_marker_blue_color,
+                    //         size: 50,
+                    //       );
+                    //     },
+                    //   )
+                    // ]),
+                    // ],
                   ),
                   SearchWidget(weatherState: weatherState),
                   if (weatherState.isPlacesFailure)

@@ -1,5 +1,6 @@
 import 'package:awesome_weather/core/global/colors.dart';
 import 'package:awesome_weather/core/models/blurhash_fakes.dart';
+import 'package:awesome_weather/core/models/octo_set_blur_hash.dart';
 import 'package:awesome_weather/core/services/weather_service_data_source.dart';
 import 'package:awesome_weather/core/util/weather_converters.dart';
 import 'package:awesome_weather/features/weather_viewer/presentation/cubit/global_setting_cubit/global_setting_cubit.dart';
@@ -55,10 +56,11 @@ class CurrentConditions extends StatelessWidget {
               image: CachedNetworkImageProvider(
                 this.weatherState.currentWeather?.weatherIcon ?? "",
               ),
-              placeholderBuilder: OctoPlaceholder.blurHash(
+              placeholderBuilder: OctoBlurHashFix.placeHolder(
                 BlurHashFake.getBlurHash(),
               ),
-              errorBuilder: OctoError.icon(color: Colors.red),
+              errorBuilder: OctoBlurHashFix.error(BlurHashFake.getBlurHash(),
+                  iconColor: Colors.red),
               fit: BoxFit.cover,
             ),
           ),

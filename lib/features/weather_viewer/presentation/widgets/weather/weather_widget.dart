@@ -83,7 +83,7 @@ class WeatherWidget extends StatelessWidget {
           child: Divider(
             color: app_accent_color.withAlpha(50),
           ),
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.all(5),
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,

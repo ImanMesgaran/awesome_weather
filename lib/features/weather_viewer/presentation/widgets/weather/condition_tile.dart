@@ -28,7 +28,7 @@ class ConditionTile extends StatelessWidget {
                 width: 0,
                 height: 0,
               ),
-        SizedBox(height: 10),
+        SizedBox(height: 5),
         Text(
           this.value,
           style: TextStyle(color: app_accent_color),
