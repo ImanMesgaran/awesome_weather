@@ -98,23 +98,6 @@ class _WeatherMapPageRouteState extends State<WeatherMapPageRoute> {
                         )
                       ]),
                     ],
-                    // layers: [
-                    // MarkerLayerOptions(markers: [
-                    //   Marker(
-                    //     point: LatLng(
-                    //       mapState.currentUserLocation.latitude,
-                    //       mapState.currentUserLocation.longitude,
-                    //     ),
-                    //     builder: (context) {
-                    //       return Icon(
-                    //         Icons.location_on,
-                    //         color: app_marker_blue_color,
-                    //         size: 50,
-                    //       );
-                    //     },
-                    //   )
-                    // ]),
-                    // ],
                   ),
                   SearchWidget(weatherState: weatherState),
                   if (weatherState.isPlacesFailure)

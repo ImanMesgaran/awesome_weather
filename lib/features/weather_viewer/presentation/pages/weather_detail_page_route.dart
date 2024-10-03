@@ -30,46 +30,38 @@ class _WeatherForecastPageRouteState extends State<WeatherForecastPageRoute> {
   Widget build(BuildContext context) {
     return BlocConsumer<WeatherCubit, WeatherState>(
       bloc: context.read<WeatherCubit>(),
-      listener: (context, mapState) {
+      listener: (context, weatherState) {
         // TODO: implement listener
       },
-      builder: (context, mapState) {
-        return BlocConsumer<WeatherCubit, WeatherState>(
-          listener: (context, weatherState) {
-            // TODO: implement listener
-          },
-          builder: (context, weatherState) {
-            return RefreshIndicator(
-              onRefresh: () async => await _retryWeatherGet(),
-              child: ListView(
-                physics: AlwaysScrollableScrollPhysics(),
-                children: [
-                  // current weather widget
-                  if (weatherState.isCurrentWeatherLoaded)
-                    WeatherWidget(
-                      weatherState: weatherState,
-                    ),
-                  if (weatherState.isForcastDetailLoading) SizedBox(height: 60),
-                  if (weatherState.isForcastDetailLoading)
-                    WeatherForecastSkeleton(),
-                  if (weatherState.isCurrentWeatherLoading)
-                    SizedBox(height: 60),
-                  if (weatherState.isCurrentWeatherLoading)
-                    WeatherDetailsSkeleton(),
-                  // weather forecast widget
-                  if (weatherState.isInitialWeatherState &&
-                      !weatherState.isCurrentWeatherLoading &&
-                      !(weatherState.isCurrentWeatherFailure ||
-                          weatherState.isForecastFailure))
-                    WeatherInitialWidget(),
-                  if (!weatherState.isCurrentWeatherLoading &&
-                      (weatherState.isCurrentWeatherFailure ||
-                          weatherState.isForecastFailure))
-                    _buildRetryWeatherWidget(state: weatherState),
-                ],
-              ),
-            );
-          },
+      builder: (context, weatherState) {
+        return RefreshIndicator(
+          onRefresh: () async => await _retryWeatherGet(),
+          child: ListView(
+            physics: AlwaysScrollableScrollPhysics(),
+            children: [
+              // current weather widget
+              if (weatherState.isCurrentWeatherLoaded)
+                WeatherWidget(
+                  weatherState: weatherState,
+                ),
+              if (weatherState.isForcastDetailLoading) SizedBox(height: 60),
+              if (weatherState.isForcastDetailLoading)
+                WeatherForecastSkeleton(),
+              if (weatherState.isCurrentWeatherLoading) SizedBox(height: 60),
+              if (weatherState.isCurrentWeatherLoading)
+                WeatherDetailsSkeleton(),
+              // weather forecast widget
+              if (weatherState.isInitialWeatherState &&
+                  !weatherState.isCurrentWeatherLoading &&
+                  !(weatherState.isCurrentWeatherFailure ||
+                      weatherState.isForecastFailure))
+                WeatherInitialWidget(),
+              if (!weatherState.isCurrentWeatherLoading &&
+                  (weatherState.isCurrentWeatherFailure ||
+                      weatherState.isForecastFailure))
+                _buildRetryWeatherWidget(state: weatherState),
+            ],
+          ),
         );
       },
     );

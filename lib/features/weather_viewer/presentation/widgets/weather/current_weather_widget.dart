@@ -47,23 +47,23 @@ class CurrentConditions extends StatelessWidget {
             color: app_accent_color,
             size: 70,
           ),
-        if (provider == WeatherAPIProviders.WeatherStack)
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            child: OctoImage(
-              height: 50,
-              width: 50,
-              image: CachedNetworkImageProvider(
-                this.weatherState.currentWeather?.weatherIcon ?? "",
-              ),
-              placeholderBuilder: OctoBlurHashFix.placeHolder(
-                BlurHashFake.getBlurHash(),
-              ),
-              errorBuilder: OctoBlurHashFix.error(BlurHashFake.getBlurHash(),
-                  iconColor: Colors.red),
-              fit: BoxFit.cover,
-            ),
-          ),
+        // if (provider == WeatherAPIProviders.WeatherStack)
+        //   Padding(
+        //     padding: const EdgeInsets.symmetric(vertical: 8),
+        //     child: OctoImage(
+        //       height: 50,
+        //       width: 50,
+        //       image: CachedNetworkImageProvider(
+        //         this.weatherState.currentWeather?.weatherIcon ?? "",
+        //       ),
+        //       placeholderBuilder: OctoBlurHashFix.placeHolder(
+        //         BlurHashFake.getBlurHash(),
+        //       ),
+        //       errorBuilder: OctoBlurHashFix.error(BlurHashFake.getBlurHash(),
+        //           iconColor: Colors.red),
+        //       fit: BoxFit.cover,
+        //     ),
+        //   ),
         SizedBox(height: 20),
         Text(
           currentTemp != null ? '$currentTemp°' : "N/A",

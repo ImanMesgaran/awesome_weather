@@ -32,7 +32,7 @@ dependencies:
   octo_image: ^2.1.0
   flutter_blurhash: ^0.8.2
   # Cached network image plugin
-  cached_network_image: ^3.2.1
+  cached_network_image: ^3.3.1
   web_socket_channel: ^2.2.0
   rxdart: ^0.27.5
   collection: ^1.16.0

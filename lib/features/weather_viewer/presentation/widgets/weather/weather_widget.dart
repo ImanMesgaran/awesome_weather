@@ -12,14 +12,6 @@ class WeatherWidget extends StatelessWidget {
 
   WeatherWidget({required this.weatherState});
 
-  // TODO: fix and improve documentation
-  // TODO: implement some unit test
-  // TODO: implement some UI test
-  // TODO: support Horizontal and Vertical Layout
-  // TODO: fix and improve color organization and theming
-  // TODO: add dynamic theming base on temprature or weather condition
-  // TODO: move date time calculations to extension methods
-
   @override
   Widget build(BuildContext context) {
     String _sunsetTime = this.weatherState.currentWeather?.sunset != null
