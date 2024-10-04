@@ -1,6 +1,8 @@
 import 'package:awesome_weather/core/global/colors.dart';
 import 'package:awesome_weather/core/services/weather_service_data_source.dart';
 import 'package:awesome_weather/features/weather_viewer/presentation/cubit/global_setting_cubit/global_setting_cubit.dart';
+import 'package:awesome_weather/features/weather_viewer/presentation/cubit/mapbox_cubit/mapbox_cubit.dart';
+import 'package:awesome_weather/features/weather_viewer/presentation/cubit/weather_cubit/weather_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -61,8 +63,14 @@ class WeatherAPIServiceWidget extends StatelessWidget {
                 groupValue: _weatherApiProvider.index,
                 onChanged: (int? value) {
                   context.read<GlobalSettingCubit>().changeAPIProvider(
-                      provider: WeatherAPIProviders.values[
-                          value ?? WeatherAPIProviders.WeatherStack.index]);
+                      provider: WeatherAPIProviders.WeatherStack);
+
+                  final _currentLocation =
+                      context.read<MapBoxCubit>().state.currentUserLocation;
+                  context.read<WeatherCubit>().loadCurrentWeather(
+                        coordinates: _currentLocation,
+                        apiProvider: WeatherAPIProviders.WeatherStack,
+                      );
                 },
                 activeColor: app_accent_color,
               )
@@ -103,8 +111,14 @@ class WeatherAPIServiceWidget extends StatelessWidget {
                 groupValue: _weatherApiProvider.index,
                 onChanged: (int? value) {
                   context.read<GlobalSettingCubit>().changeAPIProvider(
-                      provider: WeatherAPIProviders.values[
-                          value ?? WeatherAPIProviders.OpenWeatherMap.index]);
+                      provider: WeatherAPIProviders.OpenWeatherMap);
+
+                  final _currentLocation =
+                      context.read<MapBoxCubit>().state.currentUserLocation;
+                  context.read<WeatherCubit>().loadCurrentWeather(
+                        coordinates: _currentLocation,
+                        apiProvider: WeatherAPIProviders.OpenWeatherMap,
+                      );
                 },
                 activeColor: app_accent_color,
               )

@@ -126,7 +126,7 @@ class WeatherCubit extends Cubit<WeatherState> {
         emit(
           WeatherState.loadedCurrentWeather(
             prevState: state,
-            currentWeatherDetails: weatherDetails!,
+            currentWeatherDetails: weatherDetails,
           ),
         );
 

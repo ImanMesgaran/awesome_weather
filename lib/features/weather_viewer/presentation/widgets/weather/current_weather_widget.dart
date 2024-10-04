@@ -1,5 +1,6 @@
 import 'package:awesome_weather/core/global/colors.dart';
 import 'package:awesome_weather/core/models/blurhash_fakes.dart';
+import 'package:awesome_weather/core/models/octo_set_blur_hash.dart';
 import 'package:awesome_weather/core/services/weather_service_data_source.dart';
 import 'package:awesome_weather/core/util/weather_converters.dart';
 import 'package:awesome_weather/features/weather_viewer/presentation/cubit/global_setting_cubit/global_setting_cubit.dart';
@@ -46,22 +47,23 @@ class CurrentConditions extends StatelessWidget {
             color: app_accent_color,
             size: 70,
           ),
-        if (provider == WeatherAPIProviders.WeatherStack)
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            child: OctoImage(
-              height: 50,
-              width: 50,
-              image: CachedNetworkImageProvider(
-                this.weatherState.currentWeather?.weatherIcon ?? "",
-              ),
-              placeholderBuilder: OctoPlaceholder.blurHash(
-                BlurHashFake.getBlurHash(),
-              ),
-              errorBuilder: OctoError.icon(color: Colors.red),
-              fit: BoxFit.cover,
-            ),
-          ),
+        // if (provider == WeatherAPIProviders.WeatherStack)
+        //   Padding(
+        //     padding: const EdgeInsets.symmetric(vertical: 8),
+        //     child: OctoImage(
+        //       height: 50,
+        //       width: 50,
+        //       image: CachedNetworkImageProvider(
+        //         this.weatherState.currentWeather?.weatherIcon ?? "",
+        //       ),
+        //       placeholderBuilder: OctoBlurHashFix.placeHolder(
+        //         BlurHashFake.getBlurHash(),
+        //       ),
+        //       errorBuilder: OctoBlurHashFix.error(BlurHashFake.getBlurHash(),
+        //           iconColor: Colors.red),
+        //       fit: BoxFit.cover,
+        //     ),
+        //   ),
         SizedBox(height: 20),
         Text(
           currentTemp != null ? '$currentTemp°' : "N/A",

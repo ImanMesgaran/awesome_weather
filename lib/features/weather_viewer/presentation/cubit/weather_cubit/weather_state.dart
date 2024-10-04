@@ -131,7 +131,7 @@ class WeatherState extends Equatable {
 
   factory WeatherState.loadedCurrentWeather({
     required WeatherState prevState,
-    required WeatherEntity currentWeatherDetails,
+    required WeatherEntity? currentWeatherDetails,
   }) {
     return WeatherState(
       failure: null,
