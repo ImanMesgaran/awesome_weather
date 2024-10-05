@@ -57,6 +57,12 @@
 	<dict>
     	<key>NSAllowsArbitraryLoads</key>
     <true/>
-<	/dict>
+    </dict>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>this app needs to use location in usage</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>this app needs to use location Always</string>
 </dict>
 </plist>

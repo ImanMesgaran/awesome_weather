@@ -26,7 +26,7 @@ class _SearchWidgetState extends State<SearchWidget> {
     _weatherCubit = context.watch<WeatherCubit>();
 
     return Positioned(
-      top: 50,
+      top: 65,
       left: 18,
       child: Column(
         children: [
